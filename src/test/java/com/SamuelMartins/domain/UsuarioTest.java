@@ -71,7 +71,6 @@ public class UsuarioTest {
 
     @ParameterizedTest
     @CsvFileSource(resources = "/UsuarioValidos.csv", nullValues = {"null"} , useHeadersInDisplayName = true)
-
     public void deveValidarTodosCampos( Long id, String name, String email, String password, String mensagem){
         ValidationException e = assertThrows( ValidationException.class, () ->
                 umUsuario()
@@ -82,8 +81,4 @@ public class UsuarioTest {
         );
         assertEquals(mensagem, e.getMessage());
     }
-
-
-
-
 }
